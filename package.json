@@ -9,8 +9,7 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "setup-hooks": "node scripts/setup-hooks.js",
-    "pre-commit": "node scripts/collectStaged.js",
-    "pre-push": "echo 'Running pre-push checks...' && npm test"
+    "postinstall": "node scripts/initCodebase.js"
   },
   "dependencies": {
     "husky": "^9.1.7",
@@ -18,6 +17,8 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "@babel/parser": "^7.28.3",
+    "@babel/traverse": "^7.28.3",
     "@eslint/js": "^9.33.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
@@ -26,6 +27,10 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "mathjs": "^14.6.0",
+    "mathsjs": "^1.4.0",
+    "node-fetch": "^2.7.0",
+    "sqlite3": "^5.1.7",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"

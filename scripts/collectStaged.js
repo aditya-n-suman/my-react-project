@@ -7,7 +7,7 @@
  - AI_REVIEW_ENABLED=true|false (default: true)
  - AI_REVIEW_POST=true|false (default: true)
  - AI_REVIEW_SERVER_URL=http://localhost:5959/pre-commit
- - AI_REVIEW_OUTPUT_FILE=.webpack-cache/ai-review/last-precommit.json
+ - AI_REVIEW_OUTPUT_FILE=.webpack-cache/ai-review/last-precommit-input.json
  - AI_REVIEW_FAIL_ON_ERROR=true|false (default: false)
 */
 
@@ -27,7 +27,7 @@ const ENABLED = getEnvFlag('AI_REVIEW_ENABLED', true);
 const SHOULD_POST = getEnvFlag('AI_REVIEW_POST', true);
 const FAIL_ON_ERROR = getEnvFlag('AI_REVIEW_FAIL_ON_ERROR', false);
 const SERVER_URL = process.env.AI_REVIEW_SERVER_URL || 'http://localhost:5959/pre-commit';
-const OUTPUT_FILE = process.env.AI_REVIEW_OUTPUT_FILE || path.join('.webpack-cache', 'ai-review', 'last-precommit.json');
+const OUTPUT_FILE = process.env.AI_REVIEW_OUTPUT_FILE || path.join('.webpack-cache', 'ai-review', 'last-precommit-input.json');
 
 function run(cmd) {
   return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
@@ -336,7 +336,7 @@ async function main() {
     };
 
     // Write initial payload
-    const tempOutputFile = OUTPUT_FILE + '.temp';
+    const tempOutputFile = OUTPUT_FILE;
     writeJson(tempOutputFile, payload);
 
     if (SHOULD_POST) {

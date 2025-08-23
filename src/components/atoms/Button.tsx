@@ -13,12 +13,13 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   variant = 'primary',
   disabled = false,
-  className = '',
+  className,
 }) => {
   const baseStyle = "px-4 py-2 rounded-md font-medium";
   const variants = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",
-    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300"
+    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
+    tertiary: "bg-transparent text-gray-800 hover:bg-gray-100",
   };
 
   return (
