@@ -1,2 +1,3 @@
-npm run pre-commit
+node ./scripts/collectStaged.js
 node ./scripts/generateReview.js
+node ./scripts/generateMarkdown.js
